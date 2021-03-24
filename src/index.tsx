@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { InitializeStyle } from './theme/initialize';
 
 ReactDOM.render(
   <React.StrictMode>
+    <InitializeStyle />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
