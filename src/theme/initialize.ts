@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
+import { Noto_Sans_KR } from './fontSettings';
 
-export const initialize = createGlobalStyle`
+export const InitializeStyle = createGlobalStyle`
+  @font-face {
+    font-family: ${Noto_Sans_KR.fontFace.fontFamily};
+    src: url(${Noto_Sans_KR.fontFace.url});
+  }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -44,61 +50,10 @@ export const initialize = createGlobalStyle`
     border-spacing: 0;
   }
 
-  /*  < Phark Method >
-      이미지로 대체할 엘리먼트에 배경이미지를 설정하고 
-      글자는 text-indent를 이용하여 화면 바깥으로(-9999px만큼 내어 쓰기) 
-      빼내어 보이지 않게 하는 방법 */
-  .ir-pm {
-    display:  block;
-    overflow:  hidden;
-    font-size:  0;
-    line-height:  0;
-    text-indent:  -9999px;
-  }
-
-  /*  < WA IR > 
-      이미지로 대체할 엘리먼트에 배경이미지를 설정하고 글자는 span 태그로 감싼 후
-      z-index:-1을 이용하여 화면에 안보이게 처리
-  */
-  .ir-wa {
-    display:  block;
-    overflow:  hidden;
-    position:  relative;
-    z-index:  -1;
-    width:  100%;
-    height:  100%;
-  }
-
-  /*  < Block Formatting Context > 
-      대체 텍스트가 아니라 접근성을 위한 숨김 텍스트를 제공할 때 - 블록 요소
-  */
-  .ir-text-bfc {
-    overflow:  hidden;
-    border:  0;
-    margin:  -1px;
-    width:  1px;
-    height:  1px;
-    clip:  rect(1px, 1px, 1px, 1px);
-    clip-path:  inset(50%);
-  }
-
-  /*  < Inline Formatting Context > 
-      대체 텍스트가 아니라 접근성을 위한 숨김 텍스트를 제공할 때 - 인라인 요소
-  */
-  .ir-text-ifc {
-    overflow:  hidden;
-    border:  0;
-    position:  absolute;
-    width:  1px;
-    height:  1px;
-    clip:  rect(1px, 1px, 1px, 1px);
-    clip-path:  inset(50%);
-  }
-
   /* 폰트 초기화 */
   body, input, textarea, select, button, table {
-    font-family: 'Nanum Gothic', 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
-    color: #222;
+    font-family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
+    color: #333;
     font-size: 13px;
     line-height: 1.5;
   }
@@ -107,5 +62,19 @@ export const initialize = createGlobalStyle`
   img {
     display: inline-block;
     vertical-align: top;
+  }
+
+  /* 폰트 설정 */
+  h1 {
+    ${Noto_Sans_KR.h1}
+  }
+  h2 {
+    ${Noto_Sans_KR.h2}
+  }
+  h3 {
+    ${Noto_Sans_KR.h3}
+  }
+  p {
+    ${Noto_Sans_KR.p}
   }
 `
